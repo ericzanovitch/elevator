@@ -18,6 +18,7 @@ namespace Elevator
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
+            Elevator.car = new ElevatorCar((int)configuration.GetValue(typeof(int), "floors", 10));
         }
 
         public IConfiguration Configuration { get; }
@@ -35,8 +36,6 @@ namespace Elevator
             {
                 app.UseDeveloperExceptionPage();
             }
-
-            app.UseHttpsRedirection();
 
             app.UseRouting();
 
