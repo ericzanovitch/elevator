@@ -10,7 +10,7 @@ namespace Elevator
         public int Floor { get; set; }
         public ElevatorCar.Direction Direction { get; set; }
 
-        CallParameters()
+        public CallParameters()
         {
             Direction = ElevatorCar.Direction.Up;
         }

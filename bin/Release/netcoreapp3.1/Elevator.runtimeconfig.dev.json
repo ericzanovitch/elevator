@@ -1,0 +1,8 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "C:\\Users\\zanom\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\zanom\\.nuget\\packages"
+    ]
+  }
+}
