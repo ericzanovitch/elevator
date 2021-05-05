@@ -17,8 +17,9 @@ Calls
   The request body will contain the floor in a CallParameter object.  The direction value is not needed here.
 * POST http://localhost:8080/car/callfromfloor will add the requested floor to the ouside queue.  
   The request body will contain the floor and direction in a CallParameter object.  The direction value is 1 for up, -1 for down.
-
 * DELETE http://localhost:8080/car is a function used for testing and debugging.  It clears all queues and resets the direction and floor.
+
+* The CallParameter object is defined as { "floor": <int>, "direction": <int> }
 
 Execution
 * It should be possible to execute the service by running "dotnet .\bin\Release\netcoreapp3.1\elevator.dll" from the root project folder.
