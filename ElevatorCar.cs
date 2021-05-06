@@ -105,9 +105,6 @@ namespace Elevator
 
                     if (newFloor != 0)
                     {
-                        // Change directons if needed
-                        if (!SameDirection(newFloor))
-                            direction = (Direction)((int)direction * -1);
                         newFloor = Math.Abs(newFloor);
                         CancelOutsideFloor(newFloor);
                         return (currentFloor = newFloor);
@@ -143,7 +140,7 @@ namespace Elevator
             }
         }
 
-        // Find the first shadow floor from the current floor with respect to the current direction
+        // Find the first external floor from the current floor with respect to the current direction
         private int GetOutsideFloor()
         {
             if (outsideFloors.Count == 0)
@@ -152,7 +149,7 @@ namespace Elevator
             try
             {
                 // This needs to be in a try/catch block since it will error if nothing is found.
-                return ((direction == Direction.Up) ? outsideFloors.Where(n => n > currentFloor) : outsideFloors.Where(n => n > -currentFloor)).First();
+                return ((direction == Direction.Up) ? outsideFloors.Where(n => n > currentFloor) : outsideFloors.Where(n => n > -currentFloor && n < 0)).First();
             }
             catch
             {
@@ -161,7 +158,7 @@ namespace Elevator
 
         }
 
-        // Cancel a shadow floor with respect to direction
+        // Cancel a external floor with respect to direction
         private void CancelOutsideFloor(int floor)
         {
             if (direction == Direction.Down)
